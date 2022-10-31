@@ -10,5 +10,7 @@ package CarManagement;
  * @author Admin
  */
 public class Brand {
-    
+    //MinhDNHE170712 21:12
+    protected String brandID;
+    protected double price;
 }
