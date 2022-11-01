@@ -47,6 +47,7 @@ public class Brand {
             System.out.print("Name cannot be blank. Enter again: ");
             brandName = sc.next();
         }
+        this.brandName = brandName;
     }
 
     public String getSoundBrand() {
@@ -54,12 +55,11 @@ public class Brand {
     }
 
     public void setSoundBrand(String soundBrand) {
-        System.out.print("Enter sound brand: ");
+        while(soundBrand.isEmpty()) {
+            System.out.print("Soound brand cannot be blank. Enter again: ");
             soundBrand = sc.next();
-            while(soundBrand.isEmpty()) {
-                System.out.print("Soound brand cannot be blank. Enter again: ");
-                soundBrand = sc.next();
-            }
+        }
+        this.soundBrand = soundBrand;
     }
 
     public double getPrice() {
@@ -67,18 +67,17 @@ public class Brand {
     }
 
     public void setPrice(double price) {
-        System.out.print("Enter price: ");
+        while(price <= 0) {
+            System.out.print("Price must greater than 0. Enter again: ");
             price = sc.nextDouble();
-            while(price <= 0) {
-                System.out.print("Price must greater than 0. Enter again: ");
-                price = sc.nextDouble();
-            } 
+        } 
+        this.price = price;
     }
 
     //Sửa toString() theo yêu cầu của assignment
     @Override
     public String toString() {
-        return "Brand{" + "brandID=" + brandID + ", brandName=" + brandName + ", soundBrand=" + soundBrand + ", price=" + price + '}';
+        return brandID + ", " + brandName + ", " + soundBrand + ": " + price;
     }
     
     
