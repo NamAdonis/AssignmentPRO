@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CarManagement;
+package CarPrj.Classes.Com;
 
 import java.util.ArrayList;
 
@@ -11,6 +11,7 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class CarList extends ArrayList<Car>{
+public class BrandList extends ArrayList<Brand>{
+
     
 }

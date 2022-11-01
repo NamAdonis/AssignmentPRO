@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CarManagement;
+package CarPrj.Classes.Com;
 
 
 import java.util.*;
@@ -73,12 +73,9 @@ public class Brand {
         } 
         this.price = price;
     }
-
-    //Sửa toString() theo yêu cầu của assignment
+    
     @Override
     public String toString() {
         return brandID + ", " + brandName + ", " + soundBrand + ": " + price;
     }
-    
-    
 }

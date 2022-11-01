@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CarManagement;
-
-import java.util.ArrayList;
+package CarPrj.Classes.Com;
 
 /**
  *
  * @author Admin
  */
-public class BrandList extends ArrayList<Brand>{
+public class Menu {
     
 }

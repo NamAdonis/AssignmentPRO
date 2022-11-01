@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CarManagement;
+package CarPrj.Classes;
 
 /**
  *
  * @author Admin
  */
-public class Menu {
-    
+public class CarManager {
+    public static void main(String[] args) {
+        
+    }
 }
