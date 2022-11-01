@@ -5,6 +5,8 @@
  */
 package CarManagement;
 
+import java.util.*;
+
 /**
  *
  * @author Admin
@@ -15,6 +17,8 @@ public class Brand {
     protected String soundBrand;
     protected double price;
 
+    Scanner sc = new Scanner(System.in);
+    
     public Brand() {
     }
 
@@ -38,7 +42,10 @@ public class Brand {
     }
 
     public void setBrandName(String brandName) {
-        this.brandName = brandName;
+        while(brandName.isEmpty()) {
+            System.out.print("Name cannot be blank. Enter again: ");
+            brandName = sc.next();
+        }
     }
 
     public String getSoundBrand() {
@@ -46,7 +53,12 @@ public class Brand {
     }
 
     public void setSoundBrand(String soundBrand) {
-        this.soundBrand = soundBrand;
+        System.out.print("Enter sound brand: ");
+            soundBrand = sc.next();
+            while(soundBrand.isEmpty()) {
+                System.out.print("Soound brand cannot be blank. Enter again: ");
+                soundBrand = sc.next();
+            }
     }
 
     public double getPrice() {
@@ -54,7 +66,12 @@ public class Brand {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        System.out.print("Enter price: ");
+            price = sc.nextDouble();
+            while(price <= 0) {
+                System.out.print("Price must greater than 0. Enter again: ");
+                price = sc.nextDouble();
+            } 
     }
 
     //Sửa toString() theo yêu cầu của assignment
