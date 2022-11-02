@@ -10,11 +10,11 @@ package CarPrj.Classes.Com;
  * @author Admin
  */
 public class Car implements Comparable<Car>{
-   private String carID;
-   private Brand brand;
-   private String color;
-   private String frameID;
-   private String engineID;
+   protected String carID;
+   protected Brand brand;
+   protected String color;
+   protected String frameID;
+   protected String engineID;
 
     public Car() {
     }
