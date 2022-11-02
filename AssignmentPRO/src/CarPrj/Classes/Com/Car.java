@@ -9,10 +9,10 @@ package CarPrj.Classes.Com;
  *
  * @author Admin
  */
-public class Car {
+public class Car implements Comparable<Car>{
    private String carID;
    private Brand brand;
-   private  String color;
+   private String color;
    private String frameID;
    private String engineID;
 
@@ -66,10 +66,23 @@ public class Car {
     public void setEngineID(String engineID) {
         this.engineID = engineID;
     }
+    
+    public String screenString(){
+        return brand + "\n" + carID + color + frameID + engineID;
+    }
 
     @Override
     public String toString() {
-        return "carID=" + carID + ", brand=" + brand + ", color=" + color + ", frameID=" + frameID + ", engineID=" + engineID ;
+        return carID + ", " + brand + ", " + color + ", " + frameID + ", " + engineID ;
+    }
+
+    @Override
+    public int compareTo(Car c) {
+        int d = this.brand.brandName.compareTo(c.brand.brandName);
+        if (d != 0) {
+            return d;
+        }
+        return this.carID.compareTo(c.carID);
     }
    
    
