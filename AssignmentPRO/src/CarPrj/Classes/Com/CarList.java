@@ -76,6 +76,44 @@ public class CarList extends ArrayList<Car>{
     }
     
     public void printBasedBrandName(){
+        String aPartOfBrandName = TestInput.checkBlankStr("Input a part of brand name: ");
+        int N = this.size();
         int count = 0;
+        
+        for (int i = 0; i < N - 1; i++) {
+            Car c = this.get(i);
+            if (c.brand.brandName.contains(aPartOfBrandName.toUpperCase())) {
+                System.out.println(c.screenString());
+                count++;
+            }
+        }
+        if(count == 0) System.out.println("No car is detected!");
+    }
+    
+    public boolean removeCar(){
+        String removedID = TestInput.checkBlankStr("Input remove car ID: ");
+        int pos = searchID(removedID);
+        if (pos < 0) {
+            System.out.println("Not found!");
+            return false;
+        } else {
+            remove(pos);
+            System.out.println("Car ID has been remove!");
+        }
+        return true;
+    }
+    
+    public boolean updateCar(){
+        String updatedID = TestInput.checkBlankStr("Input car ID want to update: ");
+        String color, frameID, engineID; 
+        int pos = searchID(updatedID);
+        if (pos < 0) {
+            System.out.println("Not found!");
+            return false;
+        } else {
+        //    Brand b =  //Chỉnh khi có menu
+        
+        }
+        return true;
     }
 }
