@@ -76,6 +76,6 @@ public class CarList extends ArrayList<Car>{
     }
     
     public void printBasedBrandName(){
-        
+        int count = 0;
     }
 }
