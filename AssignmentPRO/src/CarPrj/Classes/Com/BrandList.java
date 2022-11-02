@@ -18,7 +18,7 @@ import java.util.Scanner;
  */
 public class BrandList extends ArrayList<Brand>{
 
-    public boolean loadDromFile(String fileName) {
+    public boolean loadFromFile(String fileName) {
         try {
             File f = new File(fileName);
             Scanner sc = new Scanner(f);

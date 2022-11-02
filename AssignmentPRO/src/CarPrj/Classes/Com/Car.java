@@ -68,7 +68,7 @@ public class Car implements Comparable<Car>{
     }
     
     public String screenString(){
-        return brand + "\n" + carID + color + frameID + engineID;
+        return brand + "\n" + " " + carID + ", " + color + ", " + frameID + ", " + engineID;
     }
 
     @Override
