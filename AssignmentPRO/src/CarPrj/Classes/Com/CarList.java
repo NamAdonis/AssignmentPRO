@@ -72,7 +72,7 @@ public class CarList extends ArrayList<Car>{
     public void addCar(){
         String carID, color, frameID, engineID;
         boolean duplicated;
-        
+        //Brand b = (Brand)Menu.ref_getChoice(brandList);
     }
     
     public void printBasedBrandName(){
