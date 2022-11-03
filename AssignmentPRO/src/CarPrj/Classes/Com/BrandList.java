@@ -43,8 +43,8 @@ public class BrandList extends ArrayList<Brand>{
     public boolean saveToFile(String fileName) {
         try {
             File f = new File(fileName);
-            FileWriter fw = new FileWriter(f);
             if(!f.exists()) f.createNewFile();
+            FileWriter fw = new FileWriter(f);
             for (Brand brand : this) {
                 fw.write(brand + "\n");
             }
@@ -54,6 +54,11 @@ public class BrandList extends ArrayList<Brand>{
             System.out.println("An error occurs: Details: " + e);
         }
         return false;
+    }
+    
+    public Brand getUserChoice() {
+        Menu mnu = new Menu();
+        return (Brand)mnu.ref_getChoice(this);
     }
     
     public int searchID(String bID) {
@@ -75,7 +80,7 @@ public class BrandList extends ArrayList<Brand>{
         System.out.print("Enter brand ID: ");
         String brandId = sc.nextLine();
         while(ids.contains(brandId)) {
-            System.out.print("Id cannot be duplicated. Enter again: ");
+            System.out.print("Brand Id has already been in list. Enter again: ");
             brandId = sc.nextLine();
         }
         br.setBrandID(brandId);
@@ -106,8 +111,4 @@ public class BrandList extends ArrayList<Brand>{
     public void listBrands() {
         this.forEach((o) -> {System.out.println(o);});
     }
-    
-    
-    
-    
 }

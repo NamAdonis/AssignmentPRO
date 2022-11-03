@@ -13,12 +13,12 @@ import java.util.*;
  * @author Admin
  */
 public class Brand {
-    protected String brandID;
-    protected String brandName;
-    protected String soundBrand;
-    protected double price;
+    private String brandID;
+    private String brandName;
+    private String soundBrand;
+    private double price;
 
-    Scanner sc = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
     
     public Brand() {
     }
@@ -58,7 +58,7 @@ public class Brand {
         while(soundBrand.isEmpty()) {
             System.out.print("Soound brand cannot be blank. Enter again: ");
             soundBrand = sc.next();
-        }
+        }   
         this.soundBrand = soundBrand;
     }
 

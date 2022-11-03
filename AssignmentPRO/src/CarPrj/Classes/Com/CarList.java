@@ -14,35 +14,51 @@ import java.util.Scanner;
  * @author Admin
  */
 public class CarList extends ArrayList<Car>{
-    BrandList brandList;
+    private BrandList brandList;
     public CarList(BrandList bList){
-        
+        this.brandList = bList;
     }
     
     public boolean loadFromFile(String filename){
         try {
             File f = new File(filename);
             Scanner sc = new Scanner(f);
-            if (!f.exists()) return false;
-            //Làm tiếp tại đây
+            while(sc.hasNextLine()) {
+                String[] line = sc.nextLine().split(", ");
+                Car car = new Car();
+                car.setCarID(line[0]);
+                int pos = brandList.searchID(line[1]);
+                car.setBrand(brandList.get(pos));
+                car.setColor(line[2]);
+                car.setEngineID(line[4]);
+                car.setFrameID(line[3]);
+                this.add(car);
+            }
+            return true;
         } catch (FileNotFoundException e) {
             System.out.println(e);
         }  
-        return true;
+        return false;
     }
     
     public boolean saveToFile(String filename){
         try {
-            
+            File f = new File(filename);
+            if(!f.exists()) f.createNewFile();
+            FileWriter fw = new FileWriter(f);
+            for (Car car : this) {
+                fw.write(car + "\n");
+            }
+            return true;
         } catch (Exception e) {
         }
-        return true;
+        return false;
     }
     
     public int searchID(String carID){
         int N = this.size();
         for (int i = 0; i < N - 1; i++) {
-            if (this.get(i).carID == carID) {
+            if (this.get(i).getCarID().equals(carID)) {
                 return 1;
             }
         }
@@ -52,7 +68,7 @@ public class CarList extends ArrayList<Car>{
     public int searchFrame(String fID){
         int N = this.size();
         for (int i = 0; i < N - 1; i++) {
-            if (this.get(i).frameID == fID) {
+            if (this.get(i).getFrameID().equals(fID)) {
                 return 1;
             }
         }
@@ -62,7 +78,7 @@ public class CarList extends ArrayList<Car>{
     public int searchEngine(String eID){
         int N = this.size();
         for (int i = 0; i < N - 1; i++) {
-            if (this.get(i).engineID == eID) {
+            if (this.get(i).getEngineID().equals(eID)) {
                 return 1;
             }
         }
@@ -73,16 +89,15 @@ public class CarList extends ArrayList<Car>{
         String carID, color, frameID, engineID;
         boolean duplicated;
         //Brand b = (Brand)Menu.ref_getChoice(brandList);
-    }
+        }
     
     public void printBasedBrandName(){
         String aPartOfBrandName = TestInput.checkBlankStr("Input a part of brand name: ");
         int N = this.size();
         int count = 0;
-        
         for (int i = 0; i < N - 1; i++) {
             Car c = this.get(i);
-            if (c.brand.brandName.contains(aPartOfBrandName.toUpperCase())) {
+            if (c.getBrand().getBrandName().contains(aPartOfBrandName.toUpperCase())) {
                 System.out.println(c.screenString());
                 count++;
             }

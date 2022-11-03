@@ -5,18 +5,23 @@
  */
 package CarPrj.Classes.Com;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Admin
  */
 public class Car implements Comparable<Car>{
-   protected String carID;
-   protected Brand brand;
-   protected String color;
-   protected String frameID;
-   protected String engineID;
+   private String carID;
+   private Brand brand;
+   private String color;
+   private String frameID;
+   private String engineID;
 
+   private Scanner sc = new Scanner(System.in);
+   
     public Car() {
+        brand = new Brand();
     }
 
     public Car(String carID, Brand brand, String color, String frameID, String engineID) {
@@ -48,6 +53,10 @@ public class Car implements Comparable<Car>{
     }
 
     public void setColor(String color) {
+        while(color.isEmpty()) {
+            System.out.print("Color cannot be empty. Enter again: ");
+            color = sc.nextLine();
+        }
         this.color = color;
     }
 
@@ -56,6 +65,10 @@ public class Car implements Comparable<Car>{
     }
 
     public void setFrameID(String frameID) {
+        while(frameID.isEmpty() || !frameID.matches("F\\d{5}")) {
+            System.out.print("Frame ID cannot be empty and must be in form F#####. Enter again: ");
+            frameID = sc.next();
+        }
         this.frameID = frameID;
     }
 
@@ -64,6 +77,10 @@ public class Car implements Comparable<Car>{
     }
 
     public void setEngineID(String engineID) {
+        while(engineID.isEmpty() || !engineID.matches("E\\d{5}")) {
+            System.out.print("Engine ID cannot be empty and must be in form E#####. Enter again: ");
+            engineID = sc.next();
+        }
         this.engineID = engineID;
     }
     
@@ -73,12 +90,12 @@ public class Car implements Comparable<Car>{
 
     @Override
     public String toString() {
-        return carID + ", " + brand + ", " + color + ", " + frameID + ", " + engineID ;
+        return carID + ", " + brand.getBrandID() + ", " + color + ", " + frameID + ", " + engineID ;
     }
 
     @Override
     public int compareTo(Car c) {
-        int d = this.brand.brandName.compareTo(c.brand.brandName);
+        int d = this.brand.getBrandName().compareTo(c.brand.getBrandName());
         if (d != 0) {
             return d;
         }

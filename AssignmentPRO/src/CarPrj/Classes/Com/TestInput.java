@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class TestInput{
-    public static Scanner sc = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in);
     public static String normaLize(String s){
         StringTokenizer stk = new StringTokenizer(s, " ");
         String result = stk.nextToken();
