@@ -56,11 +56,6 @@ public class BrandList extends ArrayList<Brand>{
         return false;
     }
     
-    public Brand getUserChoice() {
-        Menu mnu = new Menu();
-        return (Brand)mnu.ref_getChoice(this);
-    }
-    
     public int searchID(String bID) {
         for (int i = 0; i < this.size(); i++) {
             if(this.get(i).getBrandID().equalsIgnoreCase(bID)) {
@@ -68,6 +63,11 @@ public class BrandList extends ArrayList<Brand>{
             }
         }
         return - 1;
+    }
+    
+    public Brand getUserChoice() {
+        Menu menu = new Menu();
+        return (Brand) menu.ref_getChoice(this);
     }
     
     public void addBrand() {
@@ -80,7 +80,7 @@ public class BrandList extends ArrayList<Brand>{
         System.out.print("Enter brand ID: ");
         String brandId = sc.nextLine();
         while(ids.contains(brandId)) {
-            System.out.print("Brand Id has already been in list. Enter again: ");
+            System.out.print("Id cannot be duplicated. Enter again: ");
             brandId = sc.nextLine();
         }
         br.setBrandID(brandId);

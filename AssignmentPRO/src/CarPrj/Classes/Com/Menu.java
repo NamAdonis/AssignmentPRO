@@ -10,7 +10,7 @@ import java.util.*;
 /**
  *
  * @author Admin
- * @param <E> : subclass of Object class
+ * @param <E> subclass of object class
  */
 public class Menu <E extends Object>{
     
@@ -30,7 +30,7 @@ public class Menu <E extends Object>{
     public E ref_getChoice (ArrayList<E> options) {
         int response;
         int N = options.size();
-        do {
+        do {            
             response = int_getChoice(options);
         } 
         while (response < 0 || response > N);

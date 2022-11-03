@@ -7,6 +7,7 @@ package CarPrj.Classes.Com;
 
 import java.util.ArrayList;
 import java.io.*;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -15,9 +16,10 @@ import java.util.Scanner;
  */
 public class CarList extends ArrayList<Car>{
     private BrandList brandList;
+    
     public CarList(BrandList bList){
         this.brandList = bList;
-    }
+    } 
     
     public boolean loadFromFile(String filename){
         try {
@@ -30,8 +32,8 @@ public class CarList extends ArrayList<Car>{
                 int pos = brandList.searchID(line[1]);
                 car.setBrand(brandList.get(pos));
                 car.setColor(line[2]);
-                car.setEngineID(line[4]);
                 car.setFrameID(line[3]);
+                car.setEngineID(line[4]);
                 this.add(car);
             }
             return true;
@@ -49,17 +51,19 @@ public class CarList extends ArrayList<Car>{
             for (Car car : this) {
                 fw.write(car + "\n");
             }
+            fw.close();
             return true;
-        } catch (Exception e) {
+        } catch (IOException e) {
+            System.out.println("An error occurs: Details: " + e);
         }
-        return false;
+        return true;
     }
     
     public int searchID(String carID){
         int N = this.size();
         for (int i = 0; i < N - 1; i++) {
             if (this.get(i).getCarID().equals(carID)) {
-                return 1;
+                return i;
             }
         }
         return -1;
@@ -69,7 +73,7 @@ public class CarList extends ArrayList<Car>{
         int N = this.size();
         for (int i = 0; i < N - 1; i++) {
             if (this.get(i).getFrameID().equals(fID)) {
-                return 1;
+                return i;
             }
         }
         return -1;
@@ -79,7 +83,7 @@ public class CarList extends ArrayList<Car>{
         int N = this.size();
         for (int i = 0; i < N - 1; i++) {
             if (this.get(i).getEngineID().equals(eID)) {
-                return 1;
+                return i;
             }
         }
         return -1;
@@ -89,12 +93,13 @@ public class CarList extends ArrayList<Car>{
         String carID, color, frameID, engineID;
         boolean duplicated;
         //Brand b = (Brand)Menu.ref_getChoice(brandList);
-        }
+    }
     
     public void printBasedBrandName(){
         String aPartOfBrandName = TestInput.checkBlankStr("Input a part of brand name: ");
         int N = this.size();
         int count = 0;
+        
         for (int i = 0; i < N - 1; i++) {
             Car c = this.get(i);
             if (c.getBrand().getBrandName().contains(aPartOfBrandName.toUpperCase())) {
@@ -130,5 +135,14 @@ public class CarList extends ArrayList<Car>{
         
         }
         return true;
+    }
+    
+    public void listCars() {
+        Collections.sort(this);
+        int N = this.size();
+        for (int i = 0; i < N; i++) {
+            Car c = this.get(i);
+            System.out.println(c.screenString());
+        }
     }
 }

@@ -17,11 +17,11 @@ public class Car implements Comparable<Car>{
    private String color;
    private String frameID;
    private String engineID;
-
+   
    private Scanner sc = new Scanner(System.in);
    
     public Car() {
-        brand = new Brand();
+        this.brand = new Brand();
     }
 
     public Car(String carID, Brand brand, String color, String frameID, String engineID) {
@@ -54,7 +54,7 @@ public class Car implements Comparable<Car>{
 
     public void setColor(String color) {
         while(color.isEmpty()) {
-            System.out.print("Color cannot be empty. Enter again: ");
+            System.out.println("Color cannot be empty. Enter again: ");
             color = sc.nextLine();
         }
         this.color = color;
@@ -66,8 +66,8 @@ public class Car implements Comparable<Car>{
 
     public void setFrameID(String frameID) {
         while(frameID.isEmpty() || !frameID.matches("F\\d{5}")) {
-            System.out.print("Frame ID cannot be empty and must be in form F#####. Enter again: ");
-            frameID = sc.next();
+            System.out.println("Frame Id cannot be empty and must be in form F#####. Enter again: ");
+            frameID = sc.nextLine();
         }
         this.frameID = frameID;
     }
@@ -78,8 +78,8 @@ public class Car implements Comparable<Car>{
 
     public void setEngineID(String engineID) {
         while(engineID.isEmpty() || !engineID.matches("E\\d{5}")) {
-            System.out.print("Engine ID cannot be empty and must be in form E#####. Enter again: ");
-            engineID = sc.next();
+            System.out.println("Engine Id cannot be empty and must be in form E#####. Enter again: ");
+            engineID = sc.nextLine();
         }
         this.engineID = engineID;
     }
@@ -95,7 +95,7 @@ public class Car implements Comparable<Car>{
 
     @Override
     public int compareTo(Car c) {
-        int d = this.brand.getBrandName().compareTo(c.brand.getBrandName());
+        int d = this.getBrand().getBrandName().compareTo(c.getBrand().getBrandName());
         if (d != 0) {
             return d;
         }

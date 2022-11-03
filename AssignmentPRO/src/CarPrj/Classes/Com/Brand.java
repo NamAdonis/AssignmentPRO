@@ -58,7 +58,7 @@ public class Brand {
         while(soundBrand.isEmpty()) {
             System.out.print("Soound brand cannot be blank. Enter again: ");
             soundBrand = sc.next();
-        }   
+        }
         this.soundBrand = soundBrand;
     }
 
