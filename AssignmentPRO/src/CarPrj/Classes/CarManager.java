@@ -25,17 +25,17 @@ public class CarManager {
         carList.loadFromFile("src/CarPrj/cars.txt");
         int choice;
         Menu menu = new Menu();
-        System.out.println("1. List all brands");
-        System.out.println("2. Add a new brand");
-        System.out.println("3. Search a brand based on its ID");
-        System.out.println("4. Update a brand");
-        System.out.println("5. Save brands to the file, named brands.txt");
-        System.out.println("6. List all cars in ascending order of brand names");
-        System.out.println("7. List cars based on a part of an input brand name");
-        System.out.println("8. Add a car");
-        System.out.println("9. Remove a car based on its ID");
-        System.out.println("10. Update a car based on its ID");
-        System.out.println("11. Save cars to file, named cars.txt");
+        ops.add("List all brands");
+        ops.add("Add a new brand");
+        ops.add("Search a brand based on its ID");
+        ops.add("Update a brand");
+        ops.add("Save brands to the file, named brands.txt");
+        ops.add("List all cars in ascending order of brand names");
+        ops.add("List cars based on a part of an input brand name");
+        ops.add("Add a car");
+        ops.add("Remove a car based on its ID");
+        ops.add("Update a car based on its ID");
+        ops.add("Save cars to file, named cars.txt");
         do {
             choice = menu.int_getChoice(ops);
             switch (choice) {
