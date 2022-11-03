@@ -16,6 +16,7 @@ import java.util.Scanner;
  * @author Admin
  */
 public class CarManager {
+
     public static void main(String[] args) {
         ArrayList ops = new ArrayList();
         BrandList brandList = new BrandList();
@@ -46,6 +47,7 @@ public class CarManager {
                     break;
                 case 3:
                     Scanner sc = new Scanner(System.in);
+                    System.out.println("BrandID = ");
                     String ID = sc.nextLine();
                     brandList.searchID(ID);
                     break;
