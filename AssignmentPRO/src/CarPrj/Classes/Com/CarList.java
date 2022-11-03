@@ -147,8 +147,17 @@ public class CarList extends ArrayList<Car>{
             System.out.println("Not found!");
             return false;
         } else {
-        //    Brand b =  //Chỉnh khi có menu
-        
+            Car car = this.get(pos);
+            Scanner sc = new Scanner(System.in);
+            Menu menu = new Menu();
+            Brand b = (Brand)menu.ref_getChoice(brandList);
+            car.setBrand(b);
+            System.out.print("Enter color of car: ");
+            car.setColor(sc.nextLine());
+            System.out.print("Enter frame Id of car: ");
+            car.setFrameID(sc.nextLine());
+            System.out.print("Enter engine Id of car: ");
+            car.setFrameID(sc.nextLine());
         }
         return true;
     }
