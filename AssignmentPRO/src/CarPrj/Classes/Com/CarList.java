@@ -90,9 +90,25 @@ public class CarList extends ArrayList<Car>{
     }
     
     public void addCar(){
-        String carID, color, frameID, engineID;
-        boolean duplicated;
-        //Brand b = (Brand)Menu.ref_getChoice(brandList);
+        Scanner sc = new Scanner(System.in);
+        Car car = new Car();
+        System.out.print("Enter Car Id: ");
+        String carID = sc.nextLine();
+        while(this.searchID(carID) != -1) {
+            System.out.println("Car Id has already been in list. Enter again: ");
+            carID = sc.nextLine();
+        }
+        car.setCarID(carID);
+        Menu menu = new Menu();
+        Brand b = (Brand)menu.ref_getChoice(brandList);
+        car.setBrand(b);
+        System.out.print("Enter color of car: ");
+        car.setColor(sc.nextLine());
+        System.out.print("Enter frame Id of car: ");
+        car.setFrameID(sc.nextLine());
+        System.out.print("Enter engine Id of car: ");
+        car.setEngineID(sc.nextLine());
+        this.add(car);
     }
     
     public void printBasedBrandName(){
