@@ -7,6 +7,7 @@ package CarPrj.Classes.Com;
 
 import java.util.ArrayList;
 import java.io.*;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -33,8 +34,16 @@ public class CarList extends ArrayList<Car>{
     
     public boolean saveToFile(String filename){
         try {
-            
+            File f = new File(filename);
+            FileWriter fw = new FileWriter(f);
+            if(!f.exists()) f.createNewFile();
+            for (Car car : this) {
+                fw.write(car + "\n");
+            }
+            fw.close();
+            return true;
         } catch (Exception e) {
+            System.out.println("An error occurs: Details: " + e);
         }
         return true;
     }
@@ -115,5 +124,14 @@ public class CarList extends ArrayList<Car>{
         
         }
         return true;
+    }
+    
+    public void listCars() {
+        Collections.sort(this);
+        int N = this.size();
+        for (int i = 0; i < N; i++) {
+            Car c = this.get(i);
+            System.out.println(c.screenString());
+        }
     }
 }
