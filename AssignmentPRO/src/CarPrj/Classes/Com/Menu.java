@@ -22,7 +22,7 @@ public class Menu <E extends Object>{
             System.out.println((i+1) +". " + options.get(i));
         }
    
-        System.out.print("Please choose an option from 1 to 11: ");
+        System.out.print("Please choose an option from 1 to " + N + ": ");
         response  = sc.nextInt();
         return response;
     }
