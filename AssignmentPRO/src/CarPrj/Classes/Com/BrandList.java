@@ -80,7 +80,7 @@ public class BrandList extends ArrayList<Brand>{
         System.out.print("Enter brand ID: ");
         String brandId = sc.nextLine();
         while(ids.contains(brandId)) {
-            System.out.print("Id cannot be duplicated. Enter again: ");
+            System.out.print("Brand ID cannot be duplicated. Enter again: ");
             brandId = sc.nextLine();
         }
         br.setBrandID(brandId);
