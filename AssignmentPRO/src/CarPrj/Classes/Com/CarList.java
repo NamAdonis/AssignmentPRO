@@ -19,6 +19,9 @@ public class CarList extends ArrayList<Car>{
     public CarList(BrandList bList){
         
     }
+
+   //toString()
+    
     
     public boolean loadFromFile(String filename){
         try {
@@ -52,7 +55,7 @@ public class CarList extends ArrayList<Car>{
         int N = this.size();
         for (int i = 0; i < N - 1; i++) {
             if (this.get(i).carID == carID) {
-                return 1;
+                return i;
             }
         }
         return -1;
@@ -62,7 +65,7 @@ public class CarList extends ArrayList<Car>{
         int N = this.size();
         for (int i = 0; i < N - 1; i++) {
             if (this.get(i).frameID == fID) {
-                return 1;
+                return i;
             }
         }
         return -1;
@@ -72,7 +75,7 @@ public class CarList extends ArrayList<Car>{
         int N = this.size();
         for (int i = 0; i < N - 1; i++) {
             if (this.get(i).engineID == eID) {
-                return 1;
+                return i;
             }
         }
         return -1;
