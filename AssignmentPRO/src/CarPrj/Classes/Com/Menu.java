@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class Menu {
     
-    public int int_getChoice(ArrayList<String> options) {
+    public static int int_getChoice(ArrayList<String> options) {
         Scanner sc = new Scanner(System.in);
         int response;
         int N = options.size();
@@ -26,7 +26,7 @@ public class Menu {
         return response;
     }
     
-    public String ref_getChoice (ArrayList<String> options) {
+    public static String ref_getChoice (ArrayList<String> options) {
         int response;
         int N = options.size();
         do {            
