@@ -47,9 +47,12 @@ public class CarManager {
                     break;
                 case 3:
                     Scanner sc = new Scanner(System.in);
-                    System.out.println("BrandID = ");
+                    System.out.print("BrandID = ");
                     String ID = sc.nextLine();
-                    brandList.searchID(ID);
+                    if (brandList.searchID(ID) != -1)
+                       System.out.println("BrandID is found at positon : "+brandList.searchID(ID));
+                    else 
+                        System.out.println("Not found");
                     break;
                 case 4:
                     brandList.updateBrand();
