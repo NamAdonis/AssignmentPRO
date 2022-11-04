@@ -141,7 +141,6 @@ public class CarList extends ArrayList<Car>{
     
     public boolean updateCar(){
         String updatedID = TestInput.checkBlankStr("Input car ID want to update: ");
-        String color, frameID, engineID; 
         int pos = searchID(updatedID);
         if (pos < 0) {
             System.out.println("Not found!");
