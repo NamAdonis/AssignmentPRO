@@ -88,7 +88,7 @@ public class BrandList extends ArrayList<Brand>{
         br.setBrandName(sc.nextLine());
         System.out.print("Enter sound brand: ");
         br.setSoundBrand(sc.nextLine());
-        System.out.print("Enter brand price: ");
+        System.out.print("Enter price: ");
         br.setPrice(sc.nextDouble());
         this.add(br);
     }
@@ -104,7 +104,8 @@ public class BrandList extends ArrayList<Brand>{
             this.get(pos).setBrandName(sc.nextLine());
             System.out.print("Enter sound brand: ");
             this.get(pos).setSoundBrand(sc.nextLine());
-            this.get(pos).setPrice(this.get(pos).getPrice() * 2);
+            System.out.println("Enter price: ");
+            this.get(pos).setPrice(sc.nextDouble());
         }
     }
     
