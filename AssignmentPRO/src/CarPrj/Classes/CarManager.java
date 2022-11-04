@@ -24,6 +24,7 @@ public class CarManager {
         CarList carList = new CarList(brandList);
         carList.loadFromFile("src/CarPrj/cars.txt");
         int choice;
+        System.out.println("-====== Minh Trang BMW Management System ======- ");
         Menu menu = new Menu();
         ops.add("List all brands");
         ops.add("Add a new brand");
