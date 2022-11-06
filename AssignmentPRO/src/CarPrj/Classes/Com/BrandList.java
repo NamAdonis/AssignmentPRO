@@ -73,15 +73,19 @@ public class BrandList extends ArrayList<Brand>{
     public void addBrand() {
         Scanner sc = new Scanner(System.in);
         Brand br = new Brand();
-        String ids = "";
-        for (Brand brand : this) {
-            ids += brand.getBrandID() + " ";
-        }
+        boolean duplicated = false;
         System.out.print("Enter brand ID: ");
         String brandId = sc.nextLine();
-        while(ids.contains(brandId)) {
+        for (Brand brand : this) {
+            if(brandId.equals(brand.getBrandID())) duplicated = true;
+        }
+        while(duplicated) {
             System.out.print("Brand ID cannot be duplicated. Enter again: ");
             brandId = sc.nextLine();
+            duplicated = false;
+            for (Brand brand : this) {
+                if(brandId.equals(brand.getBrandID())) duplicated = true;
+            }
         }
         br.setBrandID(brandId);
         System.out.print("Enter brand name: ");
