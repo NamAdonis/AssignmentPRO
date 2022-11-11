@@ -4,7 +4,7 @@ Thông tin các thành viên:
 1. Đỗ Nhật Minh - HE170712
 2. Trần Thanh Huyền - HE176086
 3. Nguyễn Viết Hoài Nam - HE170668
-4. Khuất Như Khoa - HEHE170164
+4. Khuất Như Khoa - HE170164
 
 Chức năng của từng người:
 
