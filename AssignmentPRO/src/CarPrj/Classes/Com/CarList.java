@@ -105,9 +105,19 @@ public class CarList extends ArrayList<Car>{
         System.out.print("Enter color of car: ");
         car.setColor(sc.nextLine());
         System.out.print("Enter frame Id of car: ");
-        car.setFrameID(sc.nextLine());
+        String FrameID = sc.nextLine();
+        while(this.searchFrame(FrameID) != -1) {
+            System.out.println("Frame Id has already been in list. Enter again: ");
+            FrameID = sc.nextLine();
+        }
+        car.setFrameID(FrameID);
         System.out.print("Enter engine Id of car: ");
-        car.setEngineID(sc.nextLine());
+        String EngineID = sc.nextLine();
+        while(this.searchEngine(EngineID) != -1) {
+            System.out.println("Engine Id has already been in list. Enter again: ");
+            EngineID = sc.nextLine();
+        }
+        car.setEngineID(EngineID);
         this.add(car);
     }
     
@@ -154,9 +164,19 @@ public class CarList extends ArrayList<Car>{
             System.out.print("Enter color of car: ");
             car.setColor(sc.nextLine());
             System.out.print("Enter frame Id of car: ");
-            car.setFrameID(sc.nextLine());
+            String FrameID = sc.nextLine();
+            while(this.searchFrame(FrameID) != -1) {
+                System.out.println("Frame Id has already been in list. Enter again: ");
+                FrameID = sc.nextLine();
+            }
+            car.setFrameID(FrameID);
             System.out.print("Enter engine Id of car: ");
-            car.setFrameID(sc.nextLine());
+            String EngineID = sc.nextLine();
+            while(this.searchEngine(EngineID) != -1) {
+                System.out.println("Engine Id has already been in list. Enter again: ");
+                EngineID = sc.nextLine();
+            }
+            car.setEngineID(EngineID);
         }
         return true;
     }
