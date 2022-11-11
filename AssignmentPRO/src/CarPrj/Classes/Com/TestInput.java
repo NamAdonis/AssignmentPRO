@@ -15,7 +15,7 @@ public class TestInput{
     public static String checkBlankStr(String mess){
         String result;
         do {            
-            System.out.println(mess);
+            System.out.print(mess);
             result = normaLize(sc.nextLine());
         } while (mess.length() == 0);
         return result;

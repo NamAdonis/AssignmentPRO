@@ -56,7 +56,7 @@ public class Brand {
 
     public void setSoundBrand(String soundBrand) {
         while(soundBrand.isEmpty()) {
-            System.out.print("Soound brand cannot be blank. Enter again: ");
+            System.out.print("Sound brand cannot be blank. Enter again: ");
             soundBrand = sc.next();
         }
         this.soundBrand = soundBrand;
@@ -68,7 +68,7 @@ public class Brand {
 
     public void setPrice(double price) {
         while(price <= 0) {
-            System.out.print("Price must greater than 0. Enter again: ");
+            System.out.print("Price must be greater than 0. Enter again: ");
             price = sc.nextDouble();
         } 
         this.price = price;
